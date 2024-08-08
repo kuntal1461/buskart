@@ -4,5 +4,5 @@ import "fmt"
 
 
 func main()  {
-	fmt.Print("this is new project of the buskart")
+	fmt.Print("this is new project of the buskart. ");
 }
