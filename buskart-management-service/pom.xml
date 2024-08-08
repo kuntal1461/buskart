@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.buskart</groupId>
-	<artifactId>bus-management-service</artifactId>
+	<artifactId>buskart-management-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>BusKart Bus Management Service</name>
 	<description>Service for managing bus routes and fares for BusKart</description>

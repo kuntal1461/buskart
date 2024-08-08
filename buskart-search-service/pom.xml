@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.buskart</groupId>
-	<artifactId>search-service</artifactId>
+	<artifactId>buskart-search-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>BusKart Search Service</name>
 	<description>Service for searching bookings by booking number for BusKart</description>
