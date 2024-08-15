@@ -12,87 +12,60 @@ Detailed Project Structure
 1. Customer Service (Go)
 Purpose: Handles user authentication, destination selection, and ticket booking.
 
-project-root/
-├── customer-service/
-│   ├── core/
-│   │   ├── src/
-│   │   │   ├── main/
-│   │   │   │   ├── go/
-│   │   │   │   │   ├── entity/                  # Entity structs
-│   │   │   │   │   │   └── user.go
-│   │   │   │   │   ├── repository/              # Repository interfaces
-│   │   │   │   │   │   └── user_repository.go
-│   │   │   │   │   ├── service/                 # Service interfaces
-│   │   │   │   │   │   └── user_service.go
-│   │   │   │   │   └── serviceimpl/             # Service implementations
-│   │   │   │   │       └── user_service_impl.go
-│   │   │   └── resources/
-│   │   │       └── config.yaml                  # Core configuration
-│   │   └── go.mod                               # Go modules file for core module
-│   │
-│   ├── web/
-│   │   ├── src/
-│   │   │   ├── main/
-│   │   │   │   ├── go/
-│   │   │   │   │   └── controller/              # REST Controllers
-│   │   │   │   │       ├── user_controller.go
-│   │   │   │   │       └── auth_controller.go
-│   │   │   └── resources/
-│   │   │       └── config.yaml                  # Web configuration
-│   │   └── go.mod                               # Go modules file for web module
-│   │
-│   └── frontend/
-│       ├── public/                              # Static files
-│       │   ├── index.html                       # Main HTML file
-│       │   └── favicon.ico                      # Favicon
-│       │
-│       ├── src/
-│       │   ├── assets/                          # Static assets like images and fonts
-│       │   │   ├── images/
-│       │   │   └── fonts/
-│       │   │
-│       │   ├── components/                      # Reusable Vue components
-│       │   │   ├── common/                      # Common components (e.g., buttons, inputs)
-│       │   │   ├── layout/                      # Layout components (e.g., headers, footers)
-│       │   │   └── booking/                     # Components specific to booking (e.g., forms, lists)
-│       │   │
-│       │   ├── layouts/                         # Application layouts
-│       │   │   ├── DefaultLayout.vue
-│       │   │   └── AdminLayout.vue
-│       │   │
-│       │   ├── pages/                           # Page components
-│       │   │   ├── Home.vue
-│       │   │   ├── Login.vue
-│       │   │   ├── Booking.vue
-│       │   │   ├── AdminDashboard.vue
-│       │   │   └── UserProfile.vue
-│       │   │
-│       │   ├── router/                          # Vue Router setup
-│       │   │   └── index.js
-│       │   │
-│       │   ├── store/                           # Vuex store (state management)
-│       │   │   ├── modules/                     # Vuex modules for different features
-│       │   │   │   ├── user.js
-│       │   │   │   ├── booking.js
-│       │   │   │   └── notifications.js
-│       │   │   └── index.js
-│       │   │
-│       │   ├── styles/                          # Global styles
-│       │   │   ├── main.scss
-│       │   │   └── variables.scss
-│       │   │
-│       │   ├── utils/                           # Utility functions
-│       │   │   ├── api.js                       # API service (Axios instance)
-│       │   │   ├── auth.js                      # Authentication helpers
-│       │   │   └── validations.js               # Form validation functions
-│       │   │
-│       │   ├── plugins/                         # Vue plugins
-│       │   │   └── vuetify.js                   # Vuetify configuration
-│       │   │
-│       │   ├── App.vue                          # Root Vue component
-│       │   └── main.js                          # Entry point for the application
-│       │
-│       └── package.json                         # Project dependencies and scripts
+buskart/
+└── buskart-customer-service/
+    ├── customer-service-core/
+    │   ├── src/
+    │   │   ├── main/
+    │   │   │   ├── go/
+    │   │   │   │   ├── entity/
+    │   │   │   │   │   └── customer.go                       # Entity representing a customer
+    │   │   │   │   ├── repository/
+    │   │   │   │   │   └── customer_repository.go            # Repository interface for customer data
+    │   │   │   │   ├── service/
+    │   │   │   │   │   └── customer_service.go               # Service interface for business logic
+    │   │   │   │   ├── serviceimpl/
+    │   │   │   │   │   └── customer_service_impl.go          # Service implementation
+    │   │   │   │   └── buskart_customer_service_main.go      # Main Go application file
+    │   │   └── go.mod                                        # Go module file for core service
+    │   └── resources/
+    │       └── buskart_customer_service_config.yaml          # Configuration file for core service
+    │
+    ├── customer-service-web/
+    │   ├── src/
+    │   │   ├── main/
+    │   │   │   ├── go/
+    │   │   │   │   ├── controller/
+    │   │   │   │   │   └── customer_controller.go            # Controller for page rendering
+    │   │   │   │   └── restcontroller/
+    │   │   │   │       └── customer_restcontroller.go        # REST Controller for APIs
+    │   │   └── go.mod                                        # Go module file for web service
+    │   └── resources/
+    │       └── buskart_customer_service_web_config.yaml      # Configuration file for web service
+    │
+    ├── customer-service-frontend/
+    │   ├── public/
+    │   │   ├── customer-service.html                         # Main HTML file (Landing page)
+    │   │   └── assets/
+    │   │       ├── images/
+    │   │       │   ├── buskart_bus_banner.jpg                # Banner image
+    │   │       │   ├── buskart_logo.png                      # Logo image
+    │   │       │   └── buskart_favicon.ico                   # Favicon (optional)
+    │   │       └── styles/
+    │   │           └── buskart_main.css                      # CSS file for styling
+    │   ├── src/
+    │   │   ├── assets/
+    │   │   │   ├── images/                                   # Additional images used in the Vue app
+    │   │   │   └── styles/                                   # Additional styles used in the Vue app
+    │   │   ├── components/                                   # Reusable Vue components
+    │   │   ├── layouts/                                      # Vue layouts, e.g., header/footer
+    │   │   ├── pages/                                        # Vue pages like Home.vue, About.vue
+    │   │   ├── plugins/                                      # Vue plugins, e.g., Vuetify.js
+    │   │   ├── router/                                       # Vue Router configuration
+    │   │   ├── store/                                        # Vuex store for state management
+    │   │   ├── App.vue                                       # Root Vue component
+    │   │   └── main.js                                       # Entry point for the Vue application
+    │   └── package.json                                      # NPM dependencies and scripts (for Vue.js)
 
 
 2. Booking Service (Java)
