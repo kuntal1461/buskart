@@ -7,16 +7,8 @@ import (
 	"path/filepath"
 )
 
-
-
-
-
-
-func main()  {
-	// define the directory where the satic  file is presnt 
-
-	//staticDir :="./buskart-customer-service/customer-service-frontend/public"
-
+func main() {
+	// Define the directory where the static files are present
 	staticDir := filepath.Join("..", "..", "..", "customer-service-frontend", "public")
 
 	// Check if the directory exists
@@ -24,20 +16,25 @@ func main()  {
 		log.Fatalf("Static directory does not exist: %s", staticDir)
 	}
 
-	// serve the satic file 
+	// Serve customer-service.html when the root URL (/) is accessed
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "/" {
+			// Serve customer-service.html for the root URL
+			http.ServeFile(w, r, filepath.Join(staticDir, "customer-service.html"))
+		} else {
+			// Serve other static files normally
+			http.FileServer(http.Dir(staticDir)).ServeHTTP(w, r)
+		}
+	})
 
-	http.Handle("/",http.FileServer(http.Dir(staticDir)))
-
-	// get the port from the env of defalut 8080
-
+	// Get the port from the environment or default to 8080
 	port := os.Getenv("PORT")
-
 	if port == "" {
-		port="8080"	
+		port = "8080"
 	}
 
-	log.Printf("server is running on the http://localhost:%s/ ",port)
-	err := http.ListenAndServe(":"+port , nil)
+	log.Printf("Server is running on http://localhost:%s/", port)
+	err := http.ListenAndServe(":"+port, nil)
 
 	if err != nil {
 		log.Fatalf("Could not start server: %s\n", err.Error())
