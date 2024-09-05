@@ -16,16 +16,19 @@ func main() {
 		log.Fatalf("Static directory does not exist: %s", staticDir)
 	}
 
-	// Serve customer-service.html when the root URL (/) is accessed
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.Path == "/" {
-			// Serve customer-service.html for the root URL
+	// Serve the customer-service.html when /buskart/ is accessed
+	http.HandleFunc("/buskart/", func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "/buskart/" {
+			// Serve the customer-service.html for the /buskart/ URL
 			http.ServeFile(w, r, filepath.Join(staticDir, "customer-service.html"))
 		} else {
 			// Serve other static files normally
 			http.FileServer(http.Dir(staticDir)).ServeHTTP(w, r)
 		}
 	})
+
+	// Serve static files (CSS, images, etc.) from /assets/ correctly
+	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir(filepath.Join(staticDir, "assets")))))
 
 	// Get the port from the environment or default to 8080
 	port := os.Getenv("PORT")
