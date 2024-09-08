@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Parent reference -->
+    <parent>
+        <groupId>com.buskart</groupId>
+        <artifactId>buskart-search-service</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath> <!-- Path to the parent POM -->
+    </parent>
+
+    <artifactId>buskart-search-front-end</artifactId>
+    <packaging>pom</packaging>
+
+    <name>BusKart Search Frontend</name>
+    <description>Frontend module for BusKart Search Service</description>
+
+    <dependencies>
+        <!-- Dependencies for frontend -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Add frontend build plugin, if necessary -->
+        </plugins>
+    </build>
+</project>
