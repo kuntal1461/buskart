@@ -18,7 +18,6 @@
     <artifactId>buskart-search-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.buskart</groupId>
   <artifactId>buskart-search-front-end</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>

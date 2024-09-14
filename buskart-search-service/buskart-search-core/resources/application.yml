@@ -1,0 +1,24 @@
+# core/src/main/resources/application.yml
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password: # Set if Redis is secured
+    timeout: 60000
+  elasticsearch:
+    rest:
+      uris: http://localhost:9200
+      username: # if authentication is enabled
+      password: # if authentication is enabled
+    index:
+      name: buskart_bookings # Name of the Elasticsearch index
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# Additional core-specific configurations

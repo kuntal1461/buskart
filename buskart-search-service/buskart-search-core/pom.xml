@@ -3,55 +3,40 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Parent reference -->
+    <!-- Reference the parent POM -->
     <parent>
         <groupId>com.buskart</groupId>
         <artifactId>buskart-search-service</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath> <!-- Path to the parent POM -->
+        <version>0.0.1-SNAPSHOT</version> 
+        <relativePath>../pom.xml</relativePath> <!-- Points to the parent POM -->
     </parent>
 
     <artifactId>buskart-search-core</artifactId>
-    <packaging>jar</packaging>
+    <name>BusKart Search Core Module</name>
+    <packaging>jar</packaging> <!-- This is a JAR module -->
 
-    <name>BusKart Search Core</name>
-    <description>Core module for BusKart Search Service</description>
+    <!-- Module-specific properties -->
+    <properties>
+        <java.version>17</java.version>
+    </properties>
 
+    <!-- Module-specific dependencies -->
     <dependencies>
-        <!-- Spring Data JPA for database access -->
+        <!-- Spring Boot Data JPA dependency -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- PostgreSQL Driver -->
+        <!-- PostgreSQL Driver for database connectivity -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <!-- Test dependencies -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+        <!-- Any other module-specific dependencies can be added here -->
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <!-- Build plugins can also be inherited from the parent -->
 </project>
