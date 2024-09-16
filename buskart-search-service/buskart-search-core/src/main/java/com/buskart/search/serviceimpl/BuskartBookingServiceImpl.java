@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.buskart.search.entity.BuskartBookingEntity;
 import com.buskart.search.exception.SystemException;
-import com.buskart.search.repository.BuskartBookingRepository;
+import com.buskart.search.repository.elasticsearch.BuskartBookingElasticSearchRepository;
+import com.buskart.search.repository.jpa.BuskartBookingJpaRepository;
 import com.buskart.search.responseVo.BuskartBookingResponseVO;
 import com.buskart.search.service.BuskartBookingService;
 
@@ -17,9 +18,11 @@ import lombok.extern.slf4j.Slf4j;
 public class BuskartBookingServiceImpl implements BuskartBookingService  {
     
     @Autowired
-    private BuskartBookingRepository buskartBookingRepository ;
+    private BuskartBookingJpaRepository buskartBookingRepository ;
 
-    
+
+    @Autowired
+    private BuskartBookingElasticSearchRepository buskartBookingElasticSearchRepository;
 
 
     @Override
@@ -27,7 +30,7 @@ public class BuskartBookingServiceImpl implements BuskartBookingService  {
     public BuskartBookingResponseVO getBookingByBookingId(String bookingId) throws SystemException {
         try {
             
-            BuskartBookingEntity buskartBookingEntity = buskartBookingRepository.findByBookingId(bookingId);
+            BuskartBookingEntity buskartBookingEntity = buskartBookingElasticSearchRepository.findByBookingId(bookingId);
             if (buskartBookingEntity != null) {
 
                 BuskartBookingResponseVO buskartBookingResponseVO= new BuskartBookingResponseVO();

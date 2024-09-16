@@ -1,5 +1,3 @@
-# core/src/main/resources/application.yml
-
 spring:
   redis:
     host: localhost
@@ -20,5 +18,5 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
-# Additional core-specific configurations
+  profiles:
+    active: default

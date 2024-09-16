@@ -34,6 +34,17 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- PostgreSQL Driver (Version managed by parent) -->
+            <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.4</version>
+            </dependency>
+            <!-- Other managed dependencies go here -->
+        </dependencies>
+    </dependencyManagement>
 
     <!-- Dependencies common to all modules -->
     <dependencies>
